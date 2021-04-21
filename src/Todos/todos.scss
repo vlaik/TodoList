@@ -1,0 +1,18 @@
+input{
+    outline: none;
+    height: 30px;
+}
+.butpush{
+    margin-top: 5px;
+    cursor: pointer;
+    background: rgb(24,144,255);
+    border: none;
+    border-radius: 2px;
+    height: 36px;
+    color: white;
+    transition: 0.3s;
+    &:hover{
+        background: rgb(86, 172, 253);
+        transition: 0.3s;
+    }
+}
