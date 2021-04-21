@@ -14,18 +14,18 @@ function List(props){
         );
     }
     else{
-
-    
     return(
         <>
         <Home/>
         <h1>TODOS: {props.newArray.length}</h1>
+        <div className='todoContainer'>
         <div className='todolist'><ul>{props.newArray.map(({id, text}) =>(
             <li  key={id} className='task'> 
                  {text}
                  
                 <button onClick={() =>{ props.deleteArr(id)}}><CloseCircleOutlined /></button>
            </li>))}</ul></div>
+        </div>
         </>
     )
 }

@@ -1,13 +1,12 @@
-
+.todoContainer{
+    display: inline-block;
+    align-items: center;
 .todolist{
     border-right: 3px solid rgb(199, 199, 199);
     border-left: 3px solid rgb(199, 199, 199);;
     text-align: left;
-    margin-left: 36%;
     width: 300px;
     min-height: 300px;
-    
-    
    ul{
        padding-top: 10px;
        padding-left: 0px;
@@ -38,5 +37,6 @@
            }
         }
     }
+}
 }
 }
