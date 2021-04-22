@@ -1,24 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Home from '../Home/Home';
-import { connect } from 'react-redux';
-import { addValue, addValueToList } from '../redux/action/action';
+import { useDispatch } from 'react-redux';
+import { addValueToList } from '../redux/action/action';
 import { Input } from 'antd';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import './todos.scss';
 
-function Todos(props){
-    const handleChanche = (event) =>{
-        props.targetValue(event.target.value)
+function Todos(){
+
+    const [value, handleChange] = useState('');
+    
+    const dispatch = useDispatch();
+
+    const addToList = (id, text, isComplited) =>{
+        dispatch(addValueToList(id, text, isComplited))
     }
+    
+
     const addvalueList = () =>{
-        if(props.inputValue === ''){
-            return NotificationManager.warning('Warning message');;
+        if(value === ''){
+            return NotificationManager.warning('Error, add task')
         }
         else{
             return(
-                props.addToList((new Date()).getTime(),props.inputValue,false),
-                NotificationManager.success('Success message', 'Title here')
+                addToList((new Date()).getTime(),value,false),
+                NotificationManager.success('Todos create'),
+                handleChange('')
             )
         }
     }
@@ -27,8 +35,9 @@ function Todos(props){
         <Home/>
         <form>
         <Input 
-            value={props.inputValue}
-            onChange={handleChanche}
+            className='addTodo'
+            value={value}
+            onChange={(event) => handleChange(event.target.value)}
             placeholder="Basic usage" />
             <input
             className='butpush'
@@ -42,21 +51,7 @@ function Todos(props){
 }
 
 
-const mapStateToProps = (state) =>{
-    return{
-        inputValue: state.todos.value
-    }
-}
-
-const mapDispatchToProps = (dispatch) =>{
-    return{
-        targetValue: (value) => dispatch(addValue(value)),
-        addToList: (id, text, isComplited) => dispatch(addValueToList(id, text, isComplited))
-    }
-}
-
-
-export default connect(mapStateToProps,mapDispatchToProps)(Todos);
+export default Todos;
 
 
 

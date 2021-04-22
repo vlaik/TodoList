@@ -1,12 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Home from '../Home/Home';
+import { List, Divider } from 'antd';
 import { deletArrList } from '../redux/action/action';
+import "antd/dist/antd.css";
 import { CloseCircleOutlined } from '@ant-design/icons'
 import './list.scss';
 
-function List(props){
-    if(props.newArray.length === 0){
+function Lists(){
+
+    const arrTodos = useSelector(state => state.todos);
+    const dispatch = useDispatch();
+    const deleteTodos = (id) =>{
+        dispatch(deletArrList(id))
+    }
+
+    if(arrTodos.length === 0){
         return (
             <>
             <Home/>
@@ -16,36 +25,24 @@ function List(props){
     else{
     return(
         <>
-        <Home/>
-        <h1>TODOS: {props.newArray.length}</h1>
-        <div className='todoContainer'>
-        <div className='todolist'><ul>{props.newArray.map(({id, text}) =>(
-            <li  key={id} className='task'> 
-                 {text}
-                 
-                <button onClick={() =>{ props.deleteArr(id)}}><CloseCircleOutlined /></button>
-           </li>))}</ul></div>
-        </div>
+        <Divider orientation="centr"><Home/></Divider>
+    <List
+      className='todoList'
+      size="large"
+      header={<div>Todos: {arrTodos.length}</div>}
+      bordered
+      dataSource={arrTodos}
+      renderItem={({id, text}) =>(
+        <List.Item key={id} className='task'>   
+             {text}
+             
+            <button onClick={() =>{ deleteTodos(id)}}><CloseCircleOutlined className='qww'/></button>
+            </List.Item>)}
+    />
         </>
     )
 }
 }
 
 
-
-const mapStateToProps = (state) =>{
-    return{
-        newArray: state.reduser,
-        ids: state.reduser.id
-        
-    }
-}
-
-const mapDispatchToProps = (dispatch) =>{
-    return{
-        deleteArr: (id) => dispatch(deletArrList(id))
-    }
-}
-
-
-export default connect(mapStateToProps,mapDispatchToProps)(List);
+export default Lists;

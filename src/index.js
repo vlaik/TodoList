@@ -1,18 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
 import { Provider } from 'react-redux'; 
 import combineReducers from './redux/reduser/combineReduser'
 
-const store = createStore(combineReducers);
-
-store.subscribe(()=>{
-  console.log(store.getState())
-});
-
-console.log(store.getState())
-
+const store = createStore(combineReducers, applyMiddleware(logger));
 
 ReactDOM.render(
   <Provider store={ store }>
