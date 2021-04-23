@@ -9,7 +9,7 @@ import Header from './Home/Header/Header';
 function App() {
   return (
     <Router>
-      <Header/>
+      <Header />
       <Switch>
         <Route path='/todos' component={Todos}></Route>
         <Route path='/list' component={List}></Route>

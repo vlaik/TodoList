@@ -4,10 +4,10 @@ import './home.scss';
 
 
 
-function Home(){
-    return(
+function Home() {
+    return (
         <div>
-        <Link to='/' className='linkhome'><h1>TodoList</h1></Link>
+            <Link to='/' className='linkhome'><h1>TodoList</h1></Link>
         </div>
     )
 }

@@ -1,23 +1,21 @@
-
-.todoList{
+.todoList {
     max-width: 300px;
     margin: 0 auto;
-    .task{
-    
-        button{
+    .task {
+        button {
             background: none;
             border: none;
             float: right;
             cursor: pointer;
             margin-right: 5px;
-           .qww{
-               color: green;
-               transition: 0.5s;
-               &:hover{
-                   color: red;
-                   transition: 0.5s;
-               }
-           }
+            .qww {
+                color: green;
+                transition: 0.5s;
+                &:hover {
+                    color: red;
+                    transition: 0.5s;
+                }
+            }
         }
     }
 }

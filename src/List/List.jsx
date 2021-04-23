@@ -7,41 +7,41 @@ import "antd/dist/antd.css";
 import { CloseCircleOutlined } from '@ant-design/icons'
 import './list.scss';
 
-function Lists(){
+function Lists() {
 
     const arrTodos = useSelector(state => state.todos);
     const dispatch = useDispatch();
-    const deleteTodos = (id) =>{
+    const deleteTodos = (id) => {
         dispatch(deletArrList(id))
     }
 
-    if(arrTodos.length === 0){
+    if (arrTodos.length === 0) {
         return (
             <>
-            <Home/>
+                <Home />
             </>
         );
     }
-    else{
-    return(
-        <>
-        <Divider orientation="centr"><Home/></Divider>
-    <List
-      className='todoList'
-      size="large"
-      header={<div>Todos: {arrTodos.length}</div>}
-      bordered
-      dataSource={arrTodos}
-      renderItem={({id, text}) =>(
-        <List.Item key={id} className='task'>   
-             {text}
-             
-            <button onClick={() =>{ deleteTodos(id)}}><CloseCircleOutlined className='qww'/></button>
-            </List.Item>)}
-    />
-        </>
-    )
-}
+    else {
+        return (
+            <>
+                <Divider orientation="centr"><Home /></Divider>
+                <List
+                    className='todoList'
+                    size="large"
+                    header={<div>Todos: {arrTodos.length}</div>}
+                    bordered
+                    dataSource={arrTodos}
+                    renderItem={({ id, text }) => (
+                        <List.Item key={id} className='task'>
+                            {text}
+
+                            <button onClick={() => { deleteTodos(id) }}><CloseCircleOutlined className='qww' /></button>
+                        </List.Item>)}
+                />
+            </>
+        )
+    }
 }
 
 
