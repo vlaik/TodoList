@@ -1,18 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { createStore, applyMiddleware } from 'redux';
-import logger from 'redux-logger';
-import { Provider } from 'react-redux';
-import combineReducers from './redux/reduser/combineReduser'
+import React from "react"
+import ReactDOM from "react-dom"
+import { createStore, applyMiddleware } from "redux"
+import logger from "redux-logger"
+import { Provider } from "react-redux"
+import { App } from "./exports"
+import combineReducers from "./redux/combineReduser"
 
-const store = createStore(combineReducers, applyMiddleware(logger));
+const store = createStore(combineReducers, applyMiddleware(logger))
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
-  ,
-  document.getElementById('root')
-);
-
+	// eslint-disable-next-line react/jsx-filename-extension
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById("root")
+)

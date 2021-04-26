@@ -1,22 +1,21 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './Home/Home';
-import Todos from './Todos/Todos';
-import List from './List/List';
-import Header from './Home/Header/Header';
-
+/* eslint-disable react/jsx-filename-extension */
+import React from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import {
+	Header, Home, Lists, Todos
+} from "./exports"
 
 function App() {
-  return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route path='/todos' component={Todos}></Route>
-        <Route path='/list' component={List}></Route>
-        <Route path='/' component={Home}></Route>
-      </Switch>
-    </Router>
-  );
+	return (
+		<Router>
+			<Header />
+			<Switch>
+				<Route path="/todos" component={Todos} />
+				<Route path="/list" component={Lists} />
+				<Route path="/" component={Home} />
+			</Switch>
+		</Router>
+	)
 }
 
-export default App;
+export { App }

@@ -1,32 +1,32 @@
-module.exports = { 
-    env: { 
-        browser: true, 
-        es6: true 
+{ 
+    "env": { 
+        "browser": true, 
+        "es6": true 
     }, 
-    extends: "airbnb", 
-    globals: { 
-        Atomics: "readonly", 
-        SharedArrayBuffer: "readonly" 
-    }, parser: "babel-eslint", 
-    parserOptions: { 
-        ecmaFeatures: { 
-            jsx: true }, 
-            ecmaVersion: 2018, 
-            sourceType: "module" 
+    "extends": "airbnb", 
+    "globals": { 
+        "Atomics": "readonly", 
+        "SharedArrayBuffer": "readonly" 
+    }, "parser": "babel-eslint", 
+    "parserOptions": { 
+        "ecmaFeatures": { 
+            "jsx": true }, 
+            "ecmaVersion": 2018, 
+            "sourceType": "module" 
         }, 
-        plugins: [ "react", "react-hooks" ], 
-        rules: { 
+        "plugins": [ "react", "react-hooks" ], 
+        "rules": { 
             "linebreak-style": 0, 
-            quotes: [ 2, "double" ], 
-            semi: [ 2, "never" ], 
+            "quotes": [ 2, "double" ], 
+            "semi": [ 2, "never" ], 
             "no-shadow": 0, 
             "jsx-a11y/click-events-have-key-events": 0,
             "jsx-a11y/no-noninteractive-element-interactions": 0, 
             "react/state-in-constructor": 0, 
             "no-param-reassign": 0, 
-            indent: [2, "tab", { 
-                SwitchCase: 1, 
-                VariableDeclarator: 1 
+            "indent": [2, "tab", { 
+                "SwitchCase": 1, 
+                "VariableDeclarator": 1 
             }], 
             "no-tabs": 0, 
             "react/prop-types": 0,
@@ -43,14 +43,13 @@ module.exports = {
             "no-console": 0, 
             "import/no-cycle": 0, 
             "no-bitwise": 0, 
-            "template-curly-spacing": 0, 
-            indent: 0, 
-            curly: [2, "all"] 
+            "template-curly-spacing": 0,  
+            "curly": [2, "all"] 
         }, 
-        settings: { 
+        "settings": { 
             "import/resolver": { 
-                node: { 
-                    paths: ["src"] 
+                "node": { 
+                    "paths": ["src"] 
                 } 
             } 
         }
