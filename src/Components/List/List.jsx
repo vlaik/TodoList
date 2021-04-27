@@ -1,16 +1,12 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable react/button-has-type */
-/* eslint-disable import/order */
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { List, Divider } from "antd"
-import { Home } from "../exports"
-import { deletArrList } from "../redux/reduser/todos"
+import { deletArrList } from "../../redux/reduser/todos"
 import "antd/dist/antd.css"
-import { CloseCircleOutlined } from "@ant-design/icons"
-import "./list.scss"
+import { CloseCircleOutlined } from "./index"
+import styles from "./list.module.scss"
 
-function Lists() {
+export const Lists = () => {
 	const arrTodos = useSelector(state => state.todos)
 	const dispatch = useDispatch()
 	const deleteTodos = (id) => {
@@ -18,18 +14,14 @@ function Lists() {
 	}
 
 	if (arrTodos.length === 0) {
-		return (
-			<>
-				<Home />
-			</>
-		)
+		return null
 	}
 
 	return (
 		<>
-			<Divider orientation="centr"><Home /></Divider>
+			<Divider orientation="centr"><h1>TodoList</h1></Divider>
 			<List
-				className="todoList"
+				className={styles.todoList}
 				size="large"
 				header={(
 					<div>
@@ -43,12 +35,16 @@ function Lists() {
 					<List.Item key={id} className="task">
 						{text}
 
-						<button onClick={() => { deleteTodos(id) }}><CloseCircleOutlined className="qww" /></button>
+						<button
+							className={styles.createButt}
+							onClick={() => { deleteTodos(id) }}
+							type="button"
+						>
+							<CloseCircleOutlined className={styles.closeIcon} />
+						</button>
 					</List.Item>
 				)}
 			/>
 		</>
 	)
 }
-
-export { Lists }

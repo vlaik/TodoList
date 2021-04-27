@@ -9,7 +9,6 @@ import combineReducers from "./redux/combineReduser"
 const store = createStore(combineReducers, applyMiddleware(logger))
 
 ReactDOM.render(
-	// eslint-disable-next-line react/jsx-filename-extension
 	<Provider store={store}>
 		<App />
 	</Provider>,

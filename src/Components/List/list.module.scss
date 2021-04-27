@@ -1,0 +1,20 @@
+.todoList {
+    max-width: 300px;
+    margin: 0 auto;
+}
+    .createButt {
+        background: none;
+        border: none;
+        float: right;
+        cursor: pointer;
+        margin-right: 5px;
+}
+.closeIcon {
+    color: green;
+    transition: 0.5s;
+    &:hover {
+        color: red;
+        transition: 0.5s;
+    }
+} 
+

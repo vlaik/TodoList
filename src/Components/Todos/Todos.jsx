@@ -2,12 +2,11 @@ import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 import { Input } from "antd"
 import { NotificationContainer, NotificationManager } from "react-notifications"
-import { addValueToList } from "../redux/reduser/todos"
-import { Home } from "../exports"
+import { addValueToList } from "../../redux/reduser/todos"
 import "react-notifications/lib/notifications.css"
-import "./todos.scss"
+import styles from "./todos.module.scss"
 
-function Todos() {
+export const Todos = () => {
 	const [value, handleChange] = useState("")
 
 	const dispatch = useDispatch()
@@ -29,16 +28,16 @@ function Todos() {
 	}
 	return (
 		<>
-			<Home />
-			<form>
+			<h1 className={styles.titleCreate}>Create Todo:</h1>
+			<form className={styles.inputForm}>
 				<Input
-					className="addTodo"
+					className={styles.addTodo}
 					value={value}
 					onChange={(event) => handleChange(event.target.value)}
 					placeholder="Basic usage"
 				/>
 				<input
-					className="butpush"
+					className={styles.createTodosButtn}
 					onClick={addvalueList}
 					type="button"
 					value="Create"
@@ -48,5 +47,3 @@ function Todos() {
 		</>
 	)
 }
-
-export { Todos }
