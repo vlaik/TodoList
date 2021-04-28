@@ -1,9 +1,9 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { List, Divider } from "antd"
+import CloseCircleOutlined from "@ant-design/icons"
 import { deletArrList } from "../../redux/reduser/todos"
 import "antd/dist/antd.css"
-import { CloseCircleOutlined } from "./index"
 import styles from "./list.module.scss"
 
 export const Lists = () => {
